@@ -1,0 +1,20 @@
+{
+  // Project name in the webtask link created.
+  "webtaskName": "custom-password-reset",
+  // Get your webtaskToken following the README.md
+  "webtaskToken": "YOUR_WEBTASK_TOKEN",
+  "secrets": {
+    // Create AUTH0 API v2 Token following this link https://auth0.com/docs/api/management/v2/tokens
+    "AUTH0_APIv2_TOKEN":"YOUR_AUTH0_API_V2_TOKEN",
+    // This project currently uses (SendGrid)[www.sendgrid.com] for sending emails. 
+    "SENDGRID_KEY": "YOUR_SENDGRID_KEY",
+    // Sender email
+    "fromEmail" : "YOUR@EMAIL",
+    // Password reset email configuration options
+    // Check the link for more details https://auth0.com/docs/api/management/v2#!/Tickets/post_password_change
+    // resultUrl is to configure the path to redirect after password update.
+    "resultUrl" : "YOUR_REDIRECT_URL_AFTER_PASSWORD_UPDATE",
+    // connectionId should be the database connection where user email is available.
+    "connectionId" : "YOUR_AUTH0_DB_CONNECTION"
+  }
+}
