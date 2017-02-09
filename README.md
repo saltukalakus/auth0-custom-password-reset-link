@@ -1,12 +1,12 @@
 ## What it does?
 
 In [Password Flow 2 option enabled accounts](https://auth0.com/forum/t/changepassword-v2-flow-and-force-password-reset/2535/1), with this simple project running on [Webtask.io](https://webtask.io)
-you could replace the password reset email view of your Lock. With Webtask hosted reset email view, you could set different redirect to URLs even if your applications are using the same client ID in the Auth0 dashboard which is currently not possible to setup from the management dashboard.
+you could replace the password reset email view of your Lock. With Webtask hosted reset email view, you could set different redirect to URLs for your applications even they are using the same client ID in the Auth0 dashboard which is currently not possible to setup from the management dashboard.
 
 To make this possible, spin up a new instance of this project for each different redirect URLs and in 
-Lock configuration set the [forgot password link option](https://auth0.com/docs/libraries/lock/v10/customization#forgotpasswordlink-string-) to this instance.
+Lock configuration of your application set the [forgot password link](https://auth0.com/docs/libraries/lock/v10/customization#forgotpasswordlink-string-) to this instance.
 
-Your Lock version should be 10 or newer.
+Note that, your Lock version should be 10 or newer.
 
 ## How it works?
 
@@ -44,7 +44,7 @@ wt profile ls --show-token
 * Fill the other required parameters in config.json.
 
   * Project name in the webtask link created.<br />
-  <b>`"webtaskName": "custom-password-reset" </b>
+  <b>`"webtaskName": "custom-password-reset"`</b>
   
   * Create AUTH0 API v2 Token following this link https://auth0.com/docs/api/management/v2/tokens<br />
   <b>`"AUTH0_APIv2_TOKEN":"YOUR_AUTH0_API_V2_TOKEN"`</b>
