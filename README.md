@@ -46,22 +46,21 @@ wt profile ls --show-token
   * Project name in the webtask link created. For each different redirect to update this setting.<br />
   <b>`"webtaskName": "custom-password-reset"`</b>
   
-  * Create AUTH0 API v2 Token following this link https://auth0.com/docs/api/management/v2/tokens<br />
+  * [Create AUTH0 API v2 Token](https://auth0.com/docs/api/management/v2/tokens)<br />
   <b>`"AUTH0_APIv2_TOKEN":"YOUR_AUTH0_API_V2_TOKEN"`</b>
   
-  * This project currently uses (SendGrid)[www.sendgrid.com] for sending emails.<br /> 
+  * This project currently uses [SendGrid](www.sendgrid.com) for sending emails.<br /> 
   <b>`"SENDGRID_KEY": "YOUR_SENDGRID_KEY"`</b>
   
   * Sender email<br />
   <b>`"fromEmail" : "YOUR@EMAIL"`</b>
   
-  * Check the link for more details https://auth0.com/docs/api/management/v2#!/Tickets/post_password_change
-  resultUrl is to configure the path to redirect to after password update.<br />
+  * resultUrl is to configure the path to redirect to after password update. Check the [API](https://auth0.com/docs/api/management/v2#!/Tickets/post_password_change) for more details.<br />
   <b>`"resultUrl" : "YOUR_REDIRECT_TO_URL_AFTER_PASSWORD_UPDATE"`</b>
   
   * connectionId should be the database connection id where user email is available.
-  It starts with con_ and id is available in the URL when you click on connection in 
-  management dashboard<br />
+  It starts with `con_` and this id is available in the URL when you click on a [connection](https://manage.auth0.com/#/connections/database) in 
+  management dashboard.<br />
   <b>`"connectionId" : "YOUR_AUTH0_DB_CONNECTION"`</b>
 
   * Your auth0 domain like MY_DOMAIN.auth0.com or MY_DOMAIN.aut0.au.com etc.<br />
