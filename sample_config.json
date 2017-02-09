@@ -6,6 +6,7 @@
     "SENDGRID_KEY": "YOUR_SENDGRID_KEY",
     "fromEmail" : "YOUR@EMAIL",
     "resultUrl" : "YOUR_REDIRECT_URL_AFTER_PASSWORD_UPDATE",
-    "connectionId" : "YOUR_AUTH0_DB_CONNECTION"
+    "connectionId" : "YOUR_AUTH0_DB_CONNECTION",
+    "auth0Domain": "YOUR_AUTH0_DOMAIN"
   }
 }

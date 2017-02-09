@@ -1,6 +1,10 @@
 var Express = require('express');
 var Webtask = require('webtask-tools');
 var app = Express();
+
+var sendMail = require("./sendgrid");
+var getLink = require("./get_link");
+
 var refererLink = null;
 
 var view = (function view() {/*
@@ -123,8 +127,6 @@ var view = (function view() {/*
       <script type="text/javascript">
       $(document).ready(function() {
         $("#SendEmail").click(function() {
-            //var emailQuery = "<%=post_path%>?email=" + $("#EmailAddress").val()
-            //console.log("Send email " + emailQuery);
             $.get("<%=post_path%>", {
                 email: $("#EmailAddress").val()
             }, function(data){
@@ -149,16 +151,35 @@ app.get('/', function (req, res) {
 });
 
 app.get('/email', function (req, res) {
-    console.log("GET /email"); 
-    console.log(req.query);
-    var webtaskLink = "https://"+ req.webtaskContext.headers.host + req.originalUrl;
-    if (refererLink && refererLink != webtaskLink ) {
-      console.log("Redirect...")
-      res.redirect(301, refererLink);
-    } else {
+  console.log("GET /email"); 
+  var webtaskLink = "https://"+ req.webtaskContext.headers.host + req.originalUrl;
+
+  // Call Management v2 API to get the password reset link
+  getLink(req.webtaskContext, req.query.email, function (err, password_link){
+    if (err){
+      // Failed to send password link, stay in the webtask view.
+      // Do not redirect.
       res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.end();
+      return res.end(); 
     }
+    // Send the password reset link
+    sendMail(req.webtaskContext, req.query.email, password_link, function(err, response){
+      if (err){
+        // Failed to send password link, stay in the webtask view.
+        // Do not redirect.
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        return res.end();
+      }
+
+      if (refererLink && refererLink != webtaskLink ) {
+        console.log("Redirect...")
+        res.redirect(301, refererLink);
+      } else {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end();
+      }
+    });
+  }) 
 });
 
 module.exports = Webtask.fromExpress(app);

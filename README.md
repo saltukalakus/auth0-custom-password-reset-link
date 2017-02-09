@@ -70,8 +70,13 @@ wt profile ls --show-token
   // resultUrl is to configure the path to redirect after password update.
   "resultUrl" : "YOUR_REDIRECT_URL_AFTER_PASSWORD_UPDATE",
   
-  // connectionId should be the database connection where user email is available.
+  // connectionId should be the database connection id where user email is available.
+  // It starts with con_ and id is available in the URL when you click on connection in 
+  // management dashboard
   "connectionId" : "YOUR_AUTH0_DB_CONNECTION"
+
+  // Your auth0 domain like MY_DOMAIN.auth0.com or MY_DOMAIN.aut0.au.com etc.
+  "auth0Domain": "YOUR_AUTH0_DOMAIN"
 
 * Bundle the project and upload to Webtask.io
 

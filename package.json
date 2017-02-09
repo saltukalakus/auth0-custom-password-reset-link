@@ -11,8 +11,5 @@
   "license": "MIT",
   "devDependencies": {
     "sandboxjs": "^2.1.0"
-  },
-  "dependencies": {
-    "sendgrid": "^4.7.0"
   }
 }
