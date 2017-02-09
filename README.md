@@ -76,9 +76,9 @@ Click on the created webtask link <br />
 `https://webtask.it.auth0.com/api/run/`<b>YOUR_ACCOUNT</b>`/`<b>webtaskName</b>
 
 ## Demo
-2 SPA with Lock is currently hosted in now.sh with the below link. Both have the same client id in Auth0 dashboard. 
+2 SPA's with Lock are currently hosted in [now.sh](https://now.sh) with the below links. Both have the same client id in Auth0 dashboard. 
 I have started a webtask for each so that when an email reset update completes in Auth0 hosted page user is
-returned to correct app. Please try yourself with your email in both of the apps. Note that as both Apps
+returned to the correct app. Please try yourself with your email in both of the apps. Note that as both Apps
 use the same connection/db you need to create an account only once. Also notice that webtask urls for both apps
 are different.
 
