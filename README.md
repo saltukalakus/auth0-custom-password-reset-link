@@ -75,6 +75,15 @@ npm run deploy
 Click on the created webtask link <br />
 `https://webtask.it.auth0.com/api/run/`<b>YOUR_ACCOUNT</b>`/`<b>webtaskName</b>
 
+## Demo
+2 SPA with Lock is currently hosted in now.sh. Both has the same client id in Auth0 dashboard. 
+I have started a webtask for each so when email reset update completes in Auth0 hosted page user
+returns to correct app. Please try yourself with creating new user with your email in both of the apps
+here.
+
+[APP - 1](https://build-xkqwxuiflr.now.sh)
+[APP - 2](https://build-qhwjuvtumi.now.sh)
+
 ## Useful links
 * [Webtask Basics](https://webtask.io/docs/101)
 * [Sandboxjs](https://webtask.io/docs/sandboxjs)
