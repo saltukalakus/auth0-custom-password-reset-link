@@ -23,6 +23,11 @@ Note that, your Lock version should be 10 or newer.
 * Install Node.js and Npm 
 
 ## Setup
+* Setup a new client for management v2 API calls in Auth0 management dashboard<br />
+Follow [this link](https://auth0.com/docs/api-auth/config/using-the-auth0-dashboard) to make the setup.<br />
+While creating the client select `Auth0 Management API` in your authorized API dropdown. 
+In the next window enable your new client and select `create:user_tickets` scope. 
+
 * Install libraries
 
 ```bash
@@ -46,8 +51,11 @@ wt profile ls --show-token
   * Project name in the webtask link created. For each different redirect to update this setting.<br />
   <b>`"webtaskName": "custom-password-reset"`</b>
   
-  * [Create AUTH0 API v2 Token](https://auth0.com/docs/api/management/v2/tokens)<br />
-  <b>`"AUTH0_APIv2_TOKEN":"YOUR_AUTH0_API_V2_TOKEN"`</b>
+  * ID of your Auth0 client created in [setup step](https://auth0.com/docs/api-auth/config/using-the-auth0-dashboard)<br />
+  <b>`"AUTH0_APIv2_CLIENT_ID":"YOUR_AUTH0_API_CLIENT_ID"`</b>
+  
+  * Secret of your Auth0 client created in [setup step](https://auth0.com/docs/api-auth/config/using-the-auth0-dashboard)<br />
+  <b>`"AUTH0_APIv2_CLIENT_SECRET":"YOUR_AUTH0_API_CLIENT_SECRET"`</b>
   
   * This project currently uses [SendGrid](www.sendgrid.com) for sending emails.<br /> 
   <b>`"SENDGRID_KEY": "YOUR_SENDGRID_KEY"`</b>

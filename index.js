@@ -162,6 +162,9 @@ app.get('/email', function (req, res) {
       res.writeHead(200, { 'Content-Type': 'text/html' });
       return res.end(); 
     }
+
+    console.log("Password link : " + password_link)
+
     // Send the password reset link
     sendMail(req.webtaskContext, req.query.email, password_link, function(err, response){
       if (err){

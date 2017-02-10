@@ -2,7 +2,8 @@
   "webtaskName": "custom-password-reset",
   "webtaskToken": "YOUR_WEBTASK_TOKEN",
   "secrets": {
-    "AUTH0_APIv2_TOKEN":"YOUR_AUTH0_API_V2_TOKEN",
+    "AUTH0_APIv2_CLIENT_ID":"YOUR_AUTH0_API_CLIENT_ID",
+    "AUTH0_APIv2_CLIENT_SECRET":"YOUR_AUTH0_API_CLIENT_SECRET",
     "SENDGRID_KEY": "YOUR_SENDGRID_KEY",
     "fromEmail" : "YOUR@EMAIL",
     "resultUrl" : "YOUR_REDIRECT_URL_AFTER_PASSWORD_UPDATE",
