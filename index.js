@@ -10,6 +10,10 @@ var refererLink = null;
 var view = (function view() {/*
     <html>
     <head>
+     <meta charset="UTF-8">
+     <meta http-equiv='cache-control' content='no-cache'>
+     <meta http-equiv='expires' content='0'>
+     <meta http-equiv='pragma' content='no-cache'>
      <style>
      @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
@@ -118,23 +122,31 @@ var view = (function view() {/*
       <div class="login-page">
         <div class="form">
           <form class="login-form">
-            <input type="text" placeholder="Email address" id="EmailAddress"//>
+            <input type="text" placeholder="Email address" id="EmailAddress"/>
             <button id="SendEmail">Send</button>
           </form>
         </div>
       </div>
-      <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    </body>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/3.4.2/superagent.min.js"></script>
       <script type="text/javascript">
       $(document).ready(function() {
-        $("#SendEmail").click(function() {
-            $.get("<%=post_path%>", {
-                email: $("#EmailAddress").val()
-            }, function(data){
-            });
+        $("#SendEmail").click(function(event) {
+          event.preventDefault();
+          var emailToSend = $("#EmailAddress").val().toString();
+          var request = superagent;
+            request
+              .get('<%=post_path%>')
+              .query({ email: emailToSend})
+              .end(function(err, res){
+                if (err){
+                  alert(err);
+              }
+          });
         });
       });
       </script>
-    </body>
     </html>
 */}).toString().match(/[^]*\/\*([^]*)\*\/\s*\}$/)[1];
 
