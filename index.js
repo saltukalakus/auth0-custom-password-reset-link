@@ -169,8 +169,7 @@ app.get('/email', function (req, res) {
   // Call Management v2 API to get the password reset link
   getLink(req.webtaskContext, req.query.email, function (err, password_link){
     if (err){
-      // Failed to send password link, stay in the webtask view.
-      // Do not redirect.
+      console.log(err);
       res.writeHead(200, { 'Content-Type': 'text/html' });
       return res.end(); 
     }
@@ -180,19 +179,10 @@ app.get('/email', function (req, res) {
     // Send the password reset link
     sendMail(req.webtaskContext, req.query.email, password_link, function(err, response){
       if (err){
-        // Failed to send password link, stay in the webtask view.
-        // Do not redirect.
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        return res.end();
+        console.log(err);
       }
-
-      if (refererLink && refererLink != webtaskLink ) {
-        console.log("Redirect...")
-        res.redirect(301, refererLink);
-      } else {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end();
-      }
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end();
     });
   }) 
 });
